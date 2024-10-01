@@ -29,4 +29,24 @@ public class EntryController {
         Entry createdEntry = entryService.createEntry(content); // Creates a new entry
         return ResponseEntity.ok(createdEntry); // Returns the created entry
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Entry> getEntryById(@PathVariable Long id) {
+        Entry entry = entryService.getEntryById(id);
+        if (entry != null) {
+            return ResponseEntity.ok(entry);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteEntry(@PathVariable Long id) {
+        boolean deleted = entryService.deleteEntryById(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
