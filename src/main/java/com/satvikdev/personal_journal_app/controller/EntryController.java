@@ -28,3 +28,5 @@ public class EntryController {
     public ResponseEntity<Entry> createEntry(@RequestBody String content) {
         Entry createdEntry = entryService.createEntry(content); // Creates a new entry
         return ResponseEntity.ok(createdEntry); // Returns the created entry
+    }
+}
