@@ -2,7 +2,6 @@ package com.satvikdev.personal_journal_app.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,9 +9,11 @@ public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 2000)
     private String content;
-    private LocalDate timestamp;
-    private String sentiment;
+    private LocalDateTime timestamp;
+    @Column(name = "sentiment", nullable = false)
+    private double sentiment;
 
 
     // Getters and Setters
@@ -32,19 +33,19 @@ public class Entry {
         this.content = content;
     }
 
-    public LocalDate getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDate timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
-    public String getSentiment() {
+    public double getSentiment() {
         return this.sentiment;
     }
 
-    public void setSentiment() {
+    public void setSentiment(double sentiment) {
         this.sentiment = sentiment;
     }
 }

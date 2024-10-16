@@ -2,7 +2,7 @@ package com.satvikdev.personal_journal_app.controller;
 
 import com.satvikdev.personal_journal_app.model.Entry;
 import com.satvikdev.personal_journal_app.service.EntryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,8 +11,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/entries")
 public class EntryController {
-    @Autowired
-    private EntryService entryService;
+
+    private final EntryService entryService;
 
     public EntryController(EntryService entryService) {
         this.entryService = entryService;
@@ -25,9 +25,9 @@ public class EntryController {
     }
 
     @PostMapping
-    public ResponseEntity<Entry> createEntry(@RequestBody String content) {
-        Entry createdEntry = entryService.createEntry(content); // Creates a new entry
-        return ResponseEntity.ok(createdEntry); // Returns the created entry
+    public ResponseEntity<Entry> createEntry(@RequestBody Entry entry) {
+        Entry createdEntry = entryService.createEntry(entry.getContent()); // Assuming service handles setting timestamp
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdEntry); // Returns 201 Created
     }
 
     @GetMapping("/{id}")
