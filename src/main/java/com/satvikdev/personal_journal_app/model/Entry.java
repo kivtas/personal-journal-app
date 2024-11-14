@@ -13,7 +13,7 @@ public class Entry {
     private String content;
     private LocalDateTime timestamp;
     @Column(name = "sentiment", nullable = false)
-    private double sentiment;
+    private Double sentiment;
 
 
     // Getters and Setters
@@ -41,7 +41,7 @@ public class Entry {
         this.timestamp = timestamp;
     }
 
-    public double getSentiment() {
+    public Double getSentiment() {
         return this.sentiment;
     }
 

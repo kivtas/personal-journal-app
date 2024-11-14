@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000") // Enables CORS for all methods in this controller
 @RestController
 @RequestMapping("/api/entries")
 public class EntryController {
@@ -26,8 +27,8 @@ public class EntryController {
 
     @PostMapping
     public ResponseEntity<Entry> createEntry(@RequestBody Entry entry) {
-        Entry createdEntry = entryService.createEntry(entry.getContent()); // Assuming service handles setting timestamp
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdEntry); // Returns 201 Created
+        Entry createdEntry = entryService.createEntry(entry.getContent());
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdEntry);
     }
 
     @GetMapping("/{id}")
