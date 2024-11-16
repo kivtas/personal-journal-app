@@ -12,7 +12,7 @@ public class Entry {
     @Column(length = 2000)
     private String content;
     private LocalDateTime timestamp;
-    @Column(name = "sentiment", nullable = false)
+    @Column(name = "sentiment")
     private Double sentiment;
 
 

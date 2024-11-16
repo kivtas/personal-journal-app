@@ -1,0 +1,57 @@
+/* General Page Styles */
+.homepage-container {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f9; /* Light background color */
+    margin: 0;
+  }
+  
+  .homepage-header {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .homepage-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .homepage-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .start-button {
+    background-color: #ff7f50; /* Coral button */
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .start-button:hover {
+    background-color: #ff5722; /* Darker coral on hover */
+  }
+  
+  @media (max-width: 768px) {
+    .homepage-title {
+      font-size: 2rem;
+    }
+  
+    .homepage-subtitle {
+      font-size: 1rem;
+    }
+  }
+  
